@@ -1,0 +1,41 @@
+<app-doctor-sidebar></app-doctor-sidebar>
+<button class="btn btn-primary" *ngIf="doctor_id" [routerLink]="['/adddoctorspecialization',doctor_id]"><i class="fa fa-plus-circle" aria-hidden="true"></i>Add Doctor specialization</button>
+<div class="row">
+      
+      <div class="table-responsive">
+    <table class="table table-bordered">
+        
+        <caption>List of Doctor Specialization</caption>
+        <thead>
+          <tr class="bg-success">
+              <th>Sr.No</th>
+            <th>Specialization</th>
+            <th>Services Offered</th>   
+            <th>Description</th> 
+            <th>Last Operation</th>  
+            <th>Status</th>
+        
+            <th>Action</th>
+            <th>Moderate</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let specialization of specialization;let i=index;"  [class.selected]="specialization.id === selectedId"> 
+            
+          <tr>  
+            
+            <td> {{i+1}} </td>
+            <td> {{specialization.specialization}} </td>
+            <td>{{specialization.services_offered}}</td>
+            <td>{{specialization.description}}</td>
+            <td>{{specialization.operation}}</td>
+            <td>{{specialization.approval_status}}</td>
+            <td><button class="btn" (click)="edit(specialization.id)"><i class="fa fa-edit"></i></button><button class="btn" (click)="delete(specialization.id)"><i class="fa fa-trash-alt"></i></button></td>
+            <td><button class="btn" (click)="app(specialization.id)"><i class="fa fa-thumbs-up"></i></button><button class="btn" (click)="dis(specialization.id)"><i class="fa fa-thumbs-down"></i></button></td>
+          </tr>
+          
+        </tbody>
+    </table>
+  </div>
+</div>
+
+

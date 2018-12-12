@@ -1,0 +1,38 @@
+<app-hospital-sidebar></app-hospital-sidebar> 
+<button class="btn btn-primary" *ngIf="hospital_id" [routerLink]="['/addhospitalfacility',hospital_id]"><i class="fa fa-plus-circle" aria-hidden="true"></i>Add Hospital Facility</button>
+<div class="row">
+      
+      <div class="table-responsive">
+    <table class="table table-bordered">
+        
+        <caption>List of Facilities</caption>
+        <thead>
+          <tr class="bg-success">
+              <th>Sr.No</th>
+            <th>Name</th>
+            <th>Detail</th>
+            <th>Last Operation</th>   
+            <th>Status</th>
+            <th>Action</th>
+            <th>Moderate</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let facility of facility;let i=index;"  [class.selected]="facility.id === selectedId"> 
+            
+          <tr  >  
+            
+            <td> {{i+1}} </td>
+            <td> {{facility.name}} </td>
+            <td>{{facility.detail}}</td>
+            <td>{{facility.operation}}</td>
+            <td>{{facility.approval_status}}</td>
+            <td><button class="btn" (click)="edit(facility.id)"><i class="fa fa-edit"></i></button><button class="btn" (click)="delete(facility.id)"><i class="fa fa-trash-alt"></i></button></td>
+            <td><button class="btn" (click)="app(facility.id)"><i class="fa fa-thumbs-up"></i></button><button class="btn" (click)="dis(facility.id)"><i class="fa fa-thumbs-down"></i></button></td>
+          </tr>
+          
+        </tbody>
+    </table>
+  </div>
+</div>
+
+

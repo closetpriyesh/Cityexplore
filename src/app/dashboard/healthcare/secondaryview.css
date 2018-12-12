@@ -1,0 +1,31 @@
+.pagination li a{
+    cursor: pointer;
+}
+
+
+div.table-responsive{
+    width:900px;
+    margin-left:10px
+
+}
+
+a{
+    color:#337ab7;
+
+}
+
+th,td{
+    width:125px;
+    text-align: center
+}
+
+
+
+caption{
+    text-align: center;
+}
+
+button.btn.btn-primary
+{
+    background: #6d7fcc;   
+}

@@ -1,0 +1,103 @@
+<div class="row" style="text-align: center">
+    <div class="col-md-3zz">
+        <h3>Add Location</h3>
+    </div>
+</div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <fieldset class="form-group">
+                                    <label for="name" class="control-label">City:</label>
+                                    <input class="form-control" ngModel name="city" required #name="ngModel">
+                                </fieldset>
+                            </div>
+                            <div class="col-md-6">
+                                <fieldset class="form-group">
+                                    <label for="pincode" class="control-label">Pincode:</label>
+                                    <input class="form-control" ngModel name="pincode" required>
+                                </fieldset>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <fieldset class="form-group">
+                                    <label for="state" class="control-label">State:</label>
+                                    <input class="form-control" ngModel name="state" id="state" name="state">
+                                </fieldset>
+                            </div><!-- col -->
+              
+                            <div class="col-md-6">
+                                <fieldset class="form-group">
+                                    <label for="country" class="control-label">Country:</label>
+                                    <input class="form-control" ngModel id="country" name="country">
+                                </fieldset>
+                            </div><!-- col -->
+                        </div>
+
+                        <div>
+                            <fieldset class="form-group">
+                                <label for="about" class="control-label">About City:</label>
+                                <textarea class="form-control" ngModel id="about" name="about" class="location-about-style"></textarea>
+                            </fieldset>
+                        </div>
+              
+                        <div>
+                            <fieldset class="form-group">
+                                <label for="headline" class="control-label">City Headline:</label>
+                                <textarea class="form-control" ngModel id="headline" name="headline" class="location-headline-style"></textarea>
+                            </fieldset>
+                        </div>
+              
+                        <div class="row">
+                            <div class="col-md-6">
+                                <fieldset class="form-group">
+                                    <label for="lon" class="control-label">City Longitude:</label>
+                                    <input class="form-control" [ngModel]="longitude" name="lon" id="lon" placeholder="Enter Longitude" required>
+                                </fieldset>
+                            </div><!-- col -->
+                            <div class="col-md-6">
+                                <fieldset class="form-group">
+                                    <label for="lat" class="control-label">City Latitude:</label>
+                                    <input class="form-control" [ngModel]="latitude" name="lat" id="lat" placeholder="Enter Latitude" required>
+                                </fieldset>
+                            </div><!-- col -->
+                        </div><!-- row -->
+                        <div class="row">
+                            <div class="col-sm-8 col-sm-offset-4">
+                                <fieldset class="form-group"><br/>
+                                    <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Submit</button>
+                                </fieldset>
+                            </div><!-- col -->
+                        </div><!-- row -->
+                    </div><!-- col -->
+                    
+                    <div class="col-md-6">
+                        <label style="margin-left:50px">City Image</label><br>
+                        <fieldset class="form-group">
+                          <img [src]="image" id="image" class="location-preview-style"><br>
+                        </fieldset>
+                        <fieldset class="form-group" style="margin-left:50px">
+                          <input type="file" id="image_url" class="form-control" ngModel name="image_url" (change)="fileEvent($event)">
+                        </fieldset>
+            
+                        
+                        <fieldset class="form-group" [hidden]="!name.valid">
+                          <input id="btn1" type="radio" ng-model="geo_data1" ng-init="geo_data1=false" (click)="geo_data2=false;getGeoCordinatesFromAddress()"/>Get Lat/Long from address
+                        </fieldset>
+            
+                        <fieldset class="form-group" ng-show="location.image_url">
+                          <input id="btn2" type="radio" ng-model="geo_data2" ng-init="geo_data2=false" ng-click="geo_data1=false;getGeoCordinatesFromImage()"/>Get Lat/Long from image
+                        </fieldset>
+            
+                        
+                    </div><!-- col -->
+                    
+                </div>
+            </form>
+        </div>
+    </div>    

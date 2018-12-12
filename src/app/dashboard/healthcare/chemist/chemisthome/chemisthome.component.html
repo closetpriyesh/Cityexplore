@@ -1,0 +1,39 @@
+<app-chemist-sidebar></app-chemist-sidebar>
+<div class="row">
+    <div class="inner">
+<div class="left">
+          <img *ngIf="chemist" [src]='chemist.profile_image_url' class="profile-thumbnail">
+</div>
+<div class="right">
+    <h4 style="text-align: center"> Personal Details
+    </h4>
+
+    <ul class="items" *ngIf="chemist">
+          <h4>Name:&nbsp;{{ chemist.name }}</h4>
+          <h4>Email Id:&nbsp;{{ chemist.email }}</h4>
+      </ul>
+  
+</div>
+</div>
+<table class="table table-bordered">
+    <thead class="head">
+      <tr class="bg-success">
+        <th>City</th>
+        <th>Country</th>
+        <th>Address</th>
+        <th>Pincode</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngIf="chemist">
+        <td> {{chemist.city}} </td>
+        <td> {{chemist.country}} </td>
+        <td> {{chemist.address}} </td>
+        <td> {{chemist.pincode}} </td>
+    
+      </tr>
+    </tbody>
+</table>
+
+</div>
+

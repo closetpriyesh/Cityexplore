@@ -1,0 +1,38 @@
+<button class="btn btn-primary"   routerLink="/viewcompany">Back &nbsp;  <i class="fa fa-arrow-left" aria-hidden="true"></i></button>
+<div class="row">
+      
+      <div class="table-responsive">
+    <table class="table table-bordered">
+        
+        <caption>List of companies</caption>
+        <thead>
+          <tr class="bg-success">
+            <th>Sr.No</th>
+            <th>Company Name</th>
+            <th>Website</th>
+            <th>Headquarters</th>   
+            <th>Status</th>
+            <th>Action</th>
+            <th>Moderate</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let company of company;let i=index;"  [class.selected]="company.id === selectedId"> 
+            
+          <tr>  
+            
+            <td> {{i+1}} </td>
+            <td> {{company[0].name}} </td>
+            <td> <a href="http://{{company[0].website}}" target="_blank">{{company[0].website}}</a></td>
+            <td>{{company[0].headquarters}}</td>
+          
+            <td>{{company[0].mod_status}}</td>
+            <td><button class="btn" (click)="edit(company[0].id)"><i class="fa fa-edit"></i></button>
+            <td><button class="btn" (click)="app(company[0].id)"><i class="fa fa-thumbs-up"></i></button><button class="btn" (click)="dis(company[0].id)"><i class="fa fa-thumbs-down"></i></button></td>
+          </tr>
+          
+        </tbody>
+    </table>
+  </div>
+</div>
+
+

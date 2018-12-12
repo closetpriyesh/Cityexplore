@@ -1,0 +1,46 @@
+<button class="btn btn-primary" routerLink="/hospitalform"><i class="fa fa-plus-circle" aria-hidden="true"></i>Add </button>
+<button class="btn btn-primary"  [routerLink]="['/addhospitalgroup']"><i class="fa fa-plus-circle" aria-hidden="true"></i>Add Hospital Group</button>
+<button class="btn btn-primary"  [routerLink]="['/viewhospitalgroups']">View Hospital Group</button>
+
+<div class="row">
+      
+      <div class="table-responsive">
+    <table class="table table-bordered">
+        
+        <caption style="text-align:center">List of Hospitals</caption>
+        <thead>
+          <tr class="bg-success">
+              <th>Sr.No</th>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Phone Number</th>
+            <th>Website</th>
+            <th>Last Operation</th>
+            <th>Status</th>
+            <th>Action</th>
+            <th>Moderate</th>
+          </tr>
+        </thead>
+        <tbody   *ngFor="let hospital of hospital;let i=index;"  [class.selected]="hospital.id === selectedId"> 
+            
+          <tr  >  
+            
+            <td> {{i+1}} </td>
+            <td [routerLink]="['/hospitalhome', hospital.id]"> {{hospital.name}} </td>
+            <td>{{hospital.type}}</td>
+            <td>{{hospital.phone_nums}} </td>
+            <td><a href="http://{{hospital.website}}" target="_blank">{{hospital.website}} </a></td>
+            <td>{{hospital.operation}}</td>
+          
+            <td>{{hospital.approval_status}}</td>
+
+            <td><button class="btn" (click)="edit(hospital.id)"><i class="fa fa-edit"></i></button><button class="btn" (click)="delete(hospital.id)"><i class="fa fa-trash-alt"></i></button></td>
+            <td><button class="btn" (click)="app(hospital.id)"><i class="fa fa-thumbs-up"></i></button><button class="btn" (click)="dis(hospital.id)"><i class="fa fa-thumbs-down"></i></button></td>
+          </tr>
+          
+        </tbody>
+    </table>
+  </div>
+</div>
+
+

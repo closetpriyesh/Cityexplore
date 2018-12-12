@@ -1,0 +1,208 @@
+.form-style-8{
+    font-family: 'Open Sans Condensed', arial, sans;
+    padding: 30px;
+    background: #FFFFFF;
+    margin: 50px auto;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+    -moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+    -webkit-box-shadow:  0px 0px 15px rgba(0, 0, 0, 0.22);
+    
+  
+
+}
+form sup{
+    color: red;
+}
+
+
+
+
+
+
+input[type="text"],input[type="number"],input[type="file"],label.control-label,textarea,select,span
+{
+    width: 190px;
+    display: block;
+    margin-left: 10px;
+
+}
+
+input[type="checkbox"]
+{
+    margin:0px 0px 0px 5px; 
+}
+label.checkbox-inline
+{
+    margin:3px
+
+}
+
+
+h4
+{
+    color:white;
+}
+
+.panel-footer {
+    position: relative;
+    text-align: center;
+    color: black;
+    height:60px;
+    padding: 10px 15px;
+    background: #6d7fcc;
+}
+
+.fa-arrow-circle-left,
+.fa-arrow-circle-right {
+    font-size: 2.5em;
+    color:white;
+    cursor: pointer;
+}
+
+.col-sm-3.form-group{
+  width:25%;
+}
+
+[type="checkbox"]
+{
+    vertical-align:middle;
+}
+
+
+
+div.panel.panel-info
+{
+    width:99%;
+    margin-right:10px;
+    
+    
+   
+}
+div.panel-body
+{
+    margin:0px;
+}
+
+.panel-info>.panel-heading
+{
+    background: #6d7fcc;
+}
+div.panel-heading
+{
+    background: #6d7fcc;
+
+}
+li.active a{
+    color:white;
+}
+
+.rightSideNav {
+    position: fixed;
+    margin-top:0px;
+    right: 0;
+    top: 0px;
+    background:  #6d7fcc;;
+    height: 100%;
+    color: white;
+    width: 16%;
+    padding-left: 15px;
+    overflow-x: hidden;
+   
+}
+div.col-sm-12
+{
+padding-left:0;
+}
+
+.rightSideNav a {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    cursor: pointer;
+    display: block;
+    padding-left: 25px;
+    padding-right: 25px;
+    font-size: 1em;
+    color: rgba(0, 0, 0, 0.7);
+    margin-bottom: 3px;
+    margin-top: 3px;
+    margin-left:5px;
+}
+
+.rightSideNav a:hover {
+    color: black;
+    text-decoration: none;
+}
+
+
+
+.form-header {
+    position: relative;
+    text-align: center;
+    color: white;
+    background: #6d7fcc;
+}
+
+
+.description-about-lab{
+	border:1px solid gray;
+	width:970px;
+    margin-left: 0%;
+    margin-right: 20px;
+}
+
+
+
+  
+.profile-img-thumbnail {
+    width: 68px;
+    height: 68px;
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    overflow: hidden;
+}
+
+
+checkbox
+{
+float: left;
+margin: 5px;
+}
+
+.first{
+  display:flex; 
+  
+  padding: 30px;
+  background: #6d7fcc;
+    margin: 50px auto;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+    -moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+    -webkit-box-shadow:  0px 0px 15px rgba(0, 0, 0, 0.22);
+}
+
+.second{
+    width:20px;
+}
+.third{
+    flex:1;
+    padding: 30px;
+    background: #FFFFFF;
+    margin: 50px auto;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+    -moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+    -webkit-box-shadow:  0px 0px 15px rgba(0, 0, 0, 0.22);
+
+}
+
+
+.form-style-8 h2{
+    background: #4D4D4D;
+    text-transform: uppercase;
+    font-family: 'Open Sans Condensed', sans-serif;
+    color: #797979;
+    font-size: 18px;
+    font-weight: 100;
+    padding: 20px;
+    margin: -30px -30px 30px -30px;
+}
+

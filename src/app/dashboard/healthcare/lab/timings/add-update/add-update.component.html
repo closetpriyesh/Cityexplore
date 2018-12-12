@@ -1,0 +1,139 @@
+<div class="row">
+        <div class="col-sm-12">
+                <div class="panel panel-info">
+                <header class="panel-heading form-header">
+            <img ng-src="http://placehold.it/75x75" class="img-thumbnail profile-img-thumbnail">
+              <h4>LAB TEST</h4>
+            </header>
+            <div class="panel-body">
+                    <form
+                           novalidate
+                           (ngSubmit)="onSubmit()"
+                           [formGroup]="timingForm"  >
+    
+                           <section class="row" >
+
+                            <legend>Add/Update Lab Timings</legend>
+
+            
+                           <fieldset class="col-sm-4 form-group">
+       
+                                    <div class="form-group"
+                                    [ngClass]="{'has-error':(timingForm.get('day').touched ||
+                                    timingForm.get('day').dirty) &&
+                                    timingForm.get('day').errors }" >
+                                            <label  for="day" class="control-label">Choose Day<sup>*</sup> </label>
+
+                                            <select   [(ngModel)]="selectedValue" class="form-control" 
+                                            id="dayId"   
+                                            style="width:180px"
+                                            formControlName="day"   required>
+                                            
+                                            <option value=""  selected>select</option>
+                                            <option   *ngFor="let day of day"> {{day}}</option> 
+                                         
+                                            </select>
+
+                                            <span class="help-block" *ngIf="(timingForm.get('day').touched || 
+                                            timingForm.get('day').dirty) && 
+                                            timingForm.get('day').errors">
+                        <span *ngIf="timingForm.get('day').errors.required">
+                                                Please choose one day.
+                                        </span>
+                                        </span>
+
+                                    </div>
+
+                            </fieldset> 
+    
+                           
+    
+                            <fieldset class="col-sm-4 form-group">
+
+                                    <div class="form-group"
+                                    [ngClass]="{'has-error':(timingForm.get('open_time').touched ||
+                                    timingForm.get('open_time').dirty) &&
+                                    timingForm.get('open_time').errors }" >
+                                            <label  for="open_time" class="control-label">Opening Time <sup>*</sup></label>
+
+                                            <input class="form-control"
+                                            id="open_timeId"
+                                            type="text"
+                                            pattern="([01]?[0-9]|2[0-3]):[0-5][0-9]"
+                                            placeholder="HH:MM(24hr format)"
+                                            formControlName="open_time" />
+
+                                            <span class="help-block" *ngIf="(timingForm.get('open_time').touched || 
+                                            timingForm.get('open_time').dirty) && 
+                                            timingForm.get('open_time').errors">
+                        <span *ngIf="timingForm.get('open_time').errors.required">
+                                    .
+                                        </span>
+                                        </span>
+
+                                    </div>
+
+                    </fieldset>
+
+                    <fieldset class="col-sm-4 form-group">
+
+                                    <div class="form-group"
+                                    [ngClass]="{'has-error':(timingForm.get('close_time').touched ||
+                                    timingForm.get('close_time').dirty) &&
+                                    timingForm.get('close_time').errors }" >
+                                            <label  for="close_time" class="control-label">Closing Time<sup>*</sup> </label>
+
+                                            <input class="form-control"
+                                            id="close_timeId"
+                                            type="text"
+                                            pattern="([01]?[0-9]|2[0-3]):[0-5][0-9]"
+                                            placeholder="HH:MM(24hr format)"
+                                            formControlName="close_time" />
+                                            <span class="help-block" *ngIf="(timingForm.get('close_time').touched || 
+                                            timingForm.get('close_time').dirty) && 
+                                            timingForm.get('close_time').errors">
+                        <span *ngIf="timingForm.get('close_time').errors.required">
+
+                                        </span>
+                                        </span>
+
+                                    </div>
+
+                    </fieldset>
+               </section>
+             
+
+
+    
+           
+                 <div class="row">
+
+                 <div class="btn" style="margin-left: 200px; background: white;width: 200px">
+                                   <button class="btn btn-primary" style="margin-left:0px" type="submit" [disabled]="!timingForm.valid" >Submit</button>
+
+                           </div>
+
+
+                           <div class="btn" style="margin-left: 85px; background: white;width: 200px">
+                                       <button class="btn btn-primary" style="margin-left:0px" type="submit" (click)="Reset()" >Reset</button>
+
+                               </div>
+               </div>
+    
+    
+    
+    
+                   </form>
+    
+    
+    
+    
+           </div>
+           <footer class="panel-footer">
+                   <i class="fa fa-arrow-circle-left pull-left" aria-hidden="true" ng-click="lbc.goToViewLabs()"></i>
+                   <i class="fa fa-arrow-circle-right pull-right" aria-hidden="true" ng-click="lbc.goToLabAddress()"></i>
+                 </footer>
+           </div>
+           </div>
+    
+    

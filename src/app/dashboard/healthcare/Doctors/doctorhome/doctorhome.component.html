@@ -1,0 +1,40 @@
+<app-doctor-sidebar></app-doctor-sidebar>
+<div class="row">
+    <div class="inner">
+<div class="left">
+          <img *ngIf="doctor" [src]='doctor.profile_image_url' class="profile-thumbnail">
+</div>
+<div class="right">
+    <h4 style="text-align: center"> Personal Details
+    </h4>
+
+    <ul class="items" *ngIf="doctor">
+          <h5>Name:&nbsp;{{ doctor.name }}</h5>
+          <h5>Awards:&nbsp;{{ doctor.awards }}</h5>
+        
+      </ul>
+  
+</div>
+</div>
+
+<table class="table table-bordered" >
+  <thead class="head">
+    <tr class="bg-success">
+      <th>City</th>
+      <th>Country</th>
+      <th>Address</th>
+      <th>Pincode</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngIf="doctor">
+      <td> {{doctor.city}} </td>
+      <td> {{doctor.country}} </td>
+      <td> {{doctor.address}} </td>
+      <td> {{doctor.pincode}} </td>
+  
+    </tr>
+  </tbody>
+</table>
+</div>
+

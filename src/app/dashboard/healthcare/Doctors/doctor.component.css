@@ -1,0 +1,51 @@
+h4
+{
+    color:white;
+}
+
+li.active a{
+    color:white;
+    margin-left:25px;
+}
+
+.rightNav {
+    position: fixed;
+    margin-top:0px;
+    right: 0;
+    top: 0px;
+    background:  #6d7fcc;;
+    height: 100%;
+    color: white;
+    width: 16%;
+    padding-left: 5px;
+    overflow-x: hidden;
+   
+}
+
+h3{
+text-align: center;
+}
+
+.rightNav a {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    cursor: pointer;
+    display: block;
+    padding-left: 0;
+    padding-right: 0;
+    font-size: 1em;
+    color: rgba(0, 0, 0, 0.7);
+    
+}
+
+.rightNav a:hover {
+    color: black;
+    text-decoration: none;
+}
+
+
+
+
+
+
+

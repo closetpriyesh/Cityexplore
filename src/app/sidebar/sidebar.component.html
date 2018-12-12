@@ -1,0 +1,207 @@
+    <div class="wrapper">
+
+    <nav id="sidebar" [ngClass]="{active: isOpen}">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header">
+            <h3>Dashboard</h3>
+            <strong>D</strong>
+        </div>
+
+        <!-- Sidebar Links -->
+        <ul class="list-unstyled components">
+            <li class="active">
+                <a routerLink="/locationform">
+                    <i class="glyphicon glyphicon-home"></i>
+                    Location
+                </a>
+            </li>
+            <li><!-- Link with dropdown items -->
+                <a href="#healthcareSubmenu" data-toggle="collapse" aria-expanded="false">Healthcare</a>
+                
+                <ul class="collapse list-unstyled" id="healthcareSubmenu">
+                    <li>
+                        <a routerLink="/Hospitals">
+                            <i class="glyphicon glyphicon-briefcase"></i>
+                                 Hospitals
+                        </a>
+                    </li>
+
+                    <li>
+                        <a routerLink="/Doctors">
+                            <i class="glyphicon glyphicon-briefcase"></i>
+                                Doctors
+                        </a>
+                    </li>
+
+                    <li>
+                        <a routerLink="/common">
+                            <i class="glyphicon glyphicon-briefcase"></i>
+                                 Specialization
+                        </a>
+                    </li>
+                    <li>
+                            <a routerLink="/degree">
+                                <i class="glyphicon glyphicon-briefcase"></i>
+                                     Degree
+                            </a>
+                        </li>
+
+
+                    <li>
+                        <a routerLink="/chemist">
+                            <i class="glyphicon glyphicon-briefcase"></i>
+                                     Chemists
+                        </a>
+                    </li>
+                        
+                    <li>
+                        <a routerLink="/lab">
+                            <i class="glyphicon glyphicon-briefcase"></i>
+                                Diagnosis Labs
+                        </a>
+                    </li>
+                
+                  
+                </ul>
+            <li>
+
+                    <li><!-- Link with dropdown items -->
+                        <a href="#transportSubmenu" data-toggle="collapse" aria-expanded="false">Transport</a>
+                        
+                        <ul class="collapse list-unstyled" id="transportSubmenu">
+                            <li>
+                                <a routerLink="/viewvehicle">
+                                    <i class="glyphicon glyphicon-briefcase"></i>
+                                         Vehicle
+                                </a>
+                            </li>
+        
+                            <li>
+                                <a routerLink="/viewlink">
+                                    <i class="glyphicon glyphicon-briefcase"></i>
+                                        Link
+                                </a>
+                            </li>
+        
+                            <li>
+                                <a routerLink="/viewroute">
+                                    <i class="glyphicon glyphicon-briefcase"></i>
+                                         Route
+                                </a>
+                            </li>
+                            <li>
+                                    <a routerLink="/viewstop">
+                                        <i class="glyphicon glyphicon-briefcase"></i>
+                                            Stop
+                                    </a>
+                                </li>
+        
+        
+                            <li>
+                                <a routerLink="/viewcompany">
+                                    <i class="glyphicon glyphicon-briefcase"></i>
+                                             Company
+                                </a>
+                            </li>
+                                
+                            <li>
+                                <a routerLink="/viewhomeimage">
+                                    <i class="glyphicon glyphicon-briefcase"></i>
+                                         Home Image
+                                </a>
+                            </li> 
+                        
+                          
+                        </ul>
+                    <li>
+
+            <li><!-- Link with dropdown items -->
+                <a href="#helplineSubmenu" data-toggle="collapse" aria-expanded="false">Helpline</a>
+                <ul class="collapse list-unstyled" id="helplineSubmenu">
+                    <li>
+                        <a routerLink="/admin">
+                            <i class="glyphicon glyphicon-briefcase"></i>
+                            Admin
+                        </a>
+                    </li>
+                    <li>
+                        <a routerLink="/police">
+                            <i class="glyphicon glyphicon-link"></i>
+                            Police
+                        </a>
+                    </li>
+                    <li>
+                        <a routerLink="/fire">
+                            <i class="glyphicon glyphicon-send"></i>
+                            Fire
+                        </a>
+                    </li>
+                    <li>
+                        <a routerLink="/ambulance">
+                            <i class="glyphicon glyphicon-plus-sign"></i>
+                            Ambulance
+                        </a>
+                    </li>
+                    <li>
+                        <a routerLink="/bloodbank">
+                            <i class="glyphicon glyphicon-plus-sign"></i>
+                            Bloodbank
+                        </a>
+                    </li>
+                    <li>
+                        <a routerLink="/ngo">
+                            <i class="glyphicon glyphicon-plus-sign"></i>
+                            NGO
+                        </a>
+                    </li>
+                    <li>
+                        <a routerLink="/issues">
+                            <i class="glyphicon glyphicon-plus-sign"></i>
+                            Issues
+                        </a>
+                    </li>
+                    <li>
+                        <a routerLink="/event">
+                            <i class="glyphicon glyphicon-plus-sign"></i>
+                            Events
+                        </a>
+                    </li>
+                    <li>
+                        <a routerLink="/other">
+                            <i class="glyphicon glyphicon-plus-sign"></i>
+                            Other
+                        </a>
+                    </li>
+                </ul>
+            <li>
+                <a routerLink="/outlet">
+                    <i class="glyphicon glyphicon-send"></i>
+                    Outlet
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+        <div id="content">
+            <button type="button" class="btn btn-info navbar-btn" (click)="onToggle()" style="background: #6d7fcc">
+                <i class="glyphicon glyphicon-align-left"></i>
+                Toggle Sidebar
+            </button>
+            <router-outlet></router-outlet>
+        <div>
+
+</div>
+
+
+<!-- [collapse.html]
+<button class="btn btn-primary"
+        data-toggle="collapse"
+        data-target="#collapseExample"
+        aria-expanded="false"
+        aria-controls="collapseExample">
+  Collapse!
+</button>
+
+<div class="collapse"
+     id="collapseExample">
+  <div... -->

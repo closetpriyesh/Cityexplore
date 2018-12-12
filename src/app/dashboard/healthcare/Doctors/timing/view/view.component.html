@@ -1,0 +1,46 @@
+<app-doctor-sidebar></app-doctor-sidebar>
+<button class="btn btn-primary" *ngIf="doctor_id" [routerLink]="['/adddoctortiming',doctor_id]"><i class="fa fa-plus-circle" aria-hidden="true"></i>Add Doctor timing</button>
+<div class="row">
+      
+      <div class="table-responsive">
+    <table class="table table-bordered">
+        
+        <caption>List of Doctor timing</caption>
+        <thead>
+          <tr class="bg-success">
+              <th>Sr.No</th>
+              <th>Doctor Name</th>
+              <th>Days Available</th>
+            <th>Start Time</th>
+            <th>End Time</th>
+         
+            <th>Fee</th> 
+            <th>Last Operation</th>  
+            <th>Status</th>
+        
+            <th>Action</th>
+            <th>Moderate</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let timing of timing;let i=index;"  [class.selected]="timing.id === selectedId"> 
+            
+          <tr>  
+            
+            <td> {{i+1}} </td>
+            <td> {{timing.doctor_name}} </td>
+            <td>{{timing.days}}</td>
+            <td>{{timing.start_time}}</td>
+            <td>{{timing.end_time}}</td>
+            <td>{{timing.fee}}</td>
+            <td>{{timing.operation}}</td>
+            <td>{{timing.approval_status}}</td>
+            <td><button class="btn" (click)="edit(timing.id)"><i class="fa fa-edit"></i></button><button class="btn" (click)="delete(timing.id)"><i class="fa fa-trash-alt"></i></button></td>
+            <td><button class="btn" (click)="app(timing.id)"><i class="fa fa-thumbs-up"></i></button><button class="btn" (click)="dis(timing.id)"><i class="fa fa-thumbs-down"></i></button></td>
+          </tr>
+          
+        </tbody>
+    </table>
+  </div>
+</div>
+
+

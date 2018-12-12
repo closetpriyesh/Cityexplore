@@ -1,0 +1,41 @@
+<!-- <app-transport-sidebar></app-transport-sidebar> -->
+<button class="btn btn-primary"  routerLink="/addbooking"><i class="fa fa-plus-circle" aria-hidden="true"></i>Add transport booking</button>
+<div class="row">
+      
+      <div class="table-responsive">
+    <table class="table table-bordered">
+        
+        <caption>List of bookings</caption>
+        <thead>
+          <tr class="bg-success">
+            <th>Sr.No</th>
+            <th>transport Name</th>
+            <th>Days Available</th>
+            <th>Start Time</th>
+            <th>End Time</th>
+            <th>Fee</th> 
+            <th>Last Operation</th>  
+            <th>Status</th>
+            <th>Action</th>
+            <th>Moderate</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let booking of booking;let i=index;"  [class.selected]="booking.id === selectedId"> 
+          <tr>  
+            <td>{{i+1}}</td>
+            <td>{{booking.transport_name}} </td>
+            <td>{{booking.days}}</td>
+            <td>{{booking.start_time}}</td>
+            <td>{{booking.end_time}}</td>
+            <td>{{booking.fee}}</td>
+            <td>{{booking.operation}}</td>
+            <td>{{booking.approval_status}}</td>
+            <td><button class="btn" (click)="edit(booking.id)"><i class="fa fa-edit"></i></button><button class="btn" (click)="delete(booking.id)"><i class="fa fa-trash-alt"></i></button></td>
+            <td><button class="btn" (click)="dis(booking.id)"><i class="fa fa-thumbs-down"></i></button></td>
+          </tr>
+        </tbody>
+    </table>
+  </div>
+</div>
+
+

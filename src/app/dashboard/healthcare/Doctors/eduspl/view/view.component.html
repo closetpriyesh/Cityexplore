@@ -1,0 +1,42 @@
+
+<app-doctor-sidebar></app-doctor-sidebar>
+<button class="btn btn-primary" *ngIf="doctor_id" [routerLink]="['/adddoctoreducation',doctor_id]"><i class="fa fa-plus-circle" aria-hidden="true"></i>Add Doctor Education</button>
+<div class="row">
+      
+      <div class="table-responsive">
+    <table class="table table-bordered">
+        
+        <caption>List of Doctor Education</caption>
+        <thead>
+          <tr class="bg-success">
+              <th>Sr.No</th>
+            <th>Specialization</th>
+            <th>Degree</th>   
+            <th>Institute</th> 
+            <th>Last Operation</th>  
+            <th>Status</th>
+        
+            <th>Action</th>
+            <th>Moderate</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let education of education;let i=index;"  [class.selected]="education.id === selectedId"> 
+            
+          <tr>  
+            
+            <td> {{i+1}} </td>
+            <td> {{education.specialization}} </td>
+            <td>{{education.degree}}</td>
+            <td>{{education.institute}}</td>
+            <td>{{education.operation}}</td>
+            <td>{{education.approval_status}}</td>
+            <td><button class="btn" (click)="edit(education.id)"><i class="fa fa-edit"></i></button><button class="btn" (click)="delete(education.id)"><i class="fa fa-trash-alt"></i></button></td>
+            <td><button class="btn" (click)="app(education.id)"><i class="fa fa-thumbs-up"></i></button><button class="btn" (click)="dis(education.id)"><i class="fa fa-thumbs-down"></i></button></td>
+          </tr>
+          
+        </tbody>
+    </table>
+  </div>
+</div>
+
+

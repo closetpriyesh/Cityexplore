@@ -1,0 +1,146 @@
+<div class="row">
+        <div class="col-sm-12">
+                <div class="panel panel-info">
+                <header class="panel-heading form-header">
+            <img ng-src="http://placehold.it/75x75" class="img-thumbnail profile-img-thumbnail">
+              <h4>LAB TEST</h4>
+            </header>
+            <div class="panel-body">
+                    <form
+                           novalidate
+                           (ngSubmit)="onSubmit()"
+                           [formGroup]="testForm"  >
+    
+                           <section class="row" >
+
+                            <legend>Add/Update Tests</legend>
+
+                            <fieldset class="col-sm-4 form-group">
+       
+                                    <div class="form-group"
+                                    [ngClass]="{'has-error':(testForm.get('name').touched ||
+                                    testForm.get('name').dirty) &&
+                                    testForm.get('name').errors }" >
+                                            <label  for="name" class="control-label">Test Name<sup>*</sup> </label>
+
+                                            <input class="form-control"
+                                            id="nameId"
+                                            type="text" pattern="[A-Za-z]{3}[0-9A-Za-z\s]*"
+                                            
+                                            formControlName="name" />
+                                            <span class="help-block" *ngIf="(testForm.get('name').touched || 
+                                            testForm.get('name').dirty) && 
+                                            testForm.get('name').errors">
+                        <span *ngIf="testForm.get('name').errors.required">
+                                                Please enter the test name.
+                                        </span>
+                                        </span>
+                                            
+
+                                    </div>
+
+                            </fieldset>
+
+
+                            <!-- <fieldset class="col-sm-4 form-group">
+       
+                                    <div class="form-group"
+                                    [ngClass]="{'has-error':(testForm.get('type').touched ||
+                                    testForm.get('type').dirty) &&
+                                    testForm.get('type').errors }" >
+                                            <label  for="type" class="control-label">Choose Test Type<sup>*</sup> </label>
+
+                                            <select   [(ngModel)]="selectedValue" class="form-control" 
+                                            id="typeId"   
+                                            style="width:180px"
+                                            formControlName="type"   required>
+                                            
+                                            <option value=""  selected>select</option>
+                                            <option   *ngFor="let type of types"> {{type.name}}</option> 
+                                         
+                                            </select>
+
+                                            <span class="help-block" *ngIf="(testForm.get('type').touched || 
+                                            testForm.get('type').dirty) && 
+                                            testForm.get('type').errors">
+                        <span *ngIf="testForm.get('type').errors.required">
+                                                Please choose one test.
+                                        </span>
+                                        </span>
+
+                                    </div>
+
+                            </fieldset> -->
+    
+                           
+    
+                            <fieldset class="col-sm-4 form-group">
+       
+                                    <div class="form-group"
+                                    [ngClass]="{'has-error':(testForm.get('fee').touched ||
+                                    testForm.get('fee').dirty) &&
+                                    testForm.get('fee').errors }" >
+                                            <label  for="fee" class="control-label">Fee<sup>*</sup> </label>
+
+                                            <input class="form-control"
+                                            id="feeId"
+                                            type="text"
+                                            pattern="[0-9]{1,6}"
+                                            
+                                            formControlName="fee" />
+
+                                            <span class="help-block" *ngIf="(testForm.get('fee').touched || 
+                                            testForm.get('fee').dirty) && 
+                                            testForm.get('fee').errors">
+                                        <span *ngIf="testForm.get('fee').errors.required">
+                                                Please enter the fee.
+                                        </span>
+                                        </span>
+
+                                    </div>
+
+                            </fieldset>
+
+                            <fieldset class="col-sm-4 form-group">
+                                    <label for="checkid" class="control-label">
+                                                  Description:
+                                                          </label>
+                                      <textarea class="form-control" id="description" name="description" class="description-about-chemist" formControlName="description"></textarea>
+                                  </fieldset>
+               </section>
+               <section></section>
+
+
+    
+           
+                 <div class="row">
+
+                 <div class="btn" style="margin-left: 200px; background: white;width: 200px">
+                                   <button class="btn btn-primary" style="margin-left:0px" type="submit" [disabled]="!testForm.valid" >Submit</button>
+
+                           </div>
+
+
+                           <div class="btn" style="margin-left: 85px; background: white;width: 200px">
+                                       <button class="btn btn-primary" style="margin-left:0px" type="submit" (click)="Reset()" >Reset</button>
+
+                               </div>
+               </div>
+    
+    
+    
+    
+                   </form>
+    
+    
+    
+    
+           </div>
+           <footer class="panel-footer">
+                   <i class="fa fa-arrow-circle-left pull-left" aria-hidden="true" ng-click="lbc.goToViewLabs()"></i>
+                   <i class="fa fa-arrow-circle-right pull-right" aria-hidden="true" ng-click="lbc.goToLabAddress()"></i>
+                 </footer>
+           </div>
+           </div>
+    
+    

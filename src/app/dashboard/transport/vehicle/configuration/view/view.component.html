@@ -1,0 +1,45 @@
+<!-- <app-transport-sidebar></app-transport-sidebar> -->
+<button class="btn btn-primary"  *ngIf="vehicle_id" [routerLink]="['/moderatevehicleconfiguration',vehicle_id]">Moderate Configuration</button>
+<div class="row">
+      
+      <div class="table-responsive" style=" width:1080px;">
+    <table class="table table-bordered">
+        
+        <caption>List of configvehicles</caption>
+        <thead>
+        <tr class="bg-success">
+                <th>Sr.No</th>
+                <th>Start Times</th>
+                <th>Registered Routes</th>
+                <th>Time Spent</th>
+                <th>Wait Time</th>
+                <th>Status</th>
+                <th>Action</th>
+                <th>Moderate</th>
+              
+              </tr>
+            </thead>
+            <tbody *ngFor="let configvehicle of configvehicle;let i=index;"  [class.selected]="configvehicle.id === selectedId"> 
+                
+              <tr>  
+                
+                <td> {{i+1}} </td>
+                <td>{{configvehicle.start_time}} </td>
+                <td>
+                <ul *ngFor="let links of configvehicle.registered_route">
+                <li>{{links.name}}</li>
+                </ul>
+                </td>
+                <td>{{configvehicle.times}}</td>
+                <td>{{configvehicle.wait_time}}</td>
+                <td>{{configvehicle.mod_status}}</td>
+                <td><button class="btn"  (click)="edit(configvehicle.id)"><i class="fa fa-edit" ></i></button>
+                <td><button class="btn" (click)="dis(configvehicle.id)"><i class="fa fa-thumbs-down"></i></button></td>
+              </tr>
+          
+        </tbody>
+    </table>
+  </div>
+</div>
+
+

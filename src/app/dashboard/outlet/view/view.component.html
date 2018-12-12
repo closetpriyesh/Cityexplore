@@ -1,0 +1,41 @@
+
+<button class="btn btn-primary" routerLink="/outletform">Add</button>
+<div class="row">
+  <div class="col-sm-10 col-sm-offset-1">
+    <table class="table table-bordered">
+        <caption><h3>List of Outlets</h3></caption>
+        <thead>
+          <tr class="bg-success">
+            <th> Sr. No. </th>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Custom Data</th>
+            <th>Last Operation</th>
+            <th>Status</th>
+            <th>Action</th>
+            <th>Moderate</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let outlet of outlets.outlet_list; let i = index">
+          <tr>
+            <td> {{i+1+(current_page-1)*10}} </td>
+            <td> {{outlet.name}} </td>
+            <td> {{outlet.type}} </td>
+            <td> {{outlet.custom_data}} </td>
+            <td> {{outlet.operation}} </td>
+            <td> {{outlet.approval_status}} </td>
+            <td><button class="btn" (click)="edit(outlet.id)"><i class="fa fa-edit"></i></button><button class="btn" (click)="delete(outlet.id)"><i class="fa fa-trash-alt"></i></button></td>
+            <td><button class="btn" (click)="app(outlet.id)"><i class="fa fa-thumbs-up"></i></button><button class="btn" (click)="dis(outlet.id)"><i class="fa fa-thumbs-down"></i></button></td>
+          </tr>
+        </tbody>
+    </table>
+  </div>
+</div>
+<div class="row">
+  <nav class="text-center" *ngIf = "outlets">
+    <ul class="pagination">
+      <li *ngIf="current_page != 1 && page_count > 1"><a (click)="getOutletByCityId(current_page-1)"><span aria-hidden="true">&laquo;</span></a></li>
+      <li *ngIf="current_page != page_count && page_count > 1"><a (click)="getOutletByCityId(current_page+1)"><span aria-hidden="true">&raquo;</span></a></li>
+    </ul>
+  </nav>
+</div>

@@ -1,0 +1,213 @@
+<!-- <app-route-sidebar></app-route-sidebar> -->
+<button class="btn btn-primary"   routerLink="/viewroute">Back &nbsp;  <i class="fa fa-arrow-left" aria-hidden="true"></i></button>
+<div class="row" >
+                <div class="col-sm-3">
+                        <div style="background: white">
+                        
+                                <header class=" form-header">
+                                    <h5>Help Section!</h5>
+                                </header>
+                              
+                                                <label  for="nameId" class="control-label">Existing Links </label>
+                                                <ul style="margin-bottom: 0px" *ngFor="let key of route">
+                                                        <li>{{key[0].name}}:&nbsp;{{key[0].source}}-{{key[0].destination}}</li>
+                                                </ul>              
+
+                        </div>    
+                        <footer class="form-header" >
+                                       
+                                      </footer>  
+                </div>
+              
+    <div class="col-sm-8">
+            <div class="panel panel-info" style="width: 930px">
+            <header class="panel-heading form-header">
+                <h4>New Route Registration!</h4>
+            </header>
+          
+<div class="panel-body"  >                
+    <form
+                    novalidate
+                   
+                    [formGroup]="routeForm"  >
+
+                    <section class="row" >
+
+
+
+                        
+                      <fieldset class="col-sm-4 form-group" >
+
+                                <div class="form-group"
+                                [ngClass]="{'has-error':(routeForm.get('name').touched || 
+                                routeForm.get('name').dirty) && 
+                                routeForm.get('name').errors }">
+
+                                <label  for="nameId" class="control-label">Name<sup>*</sup> </label>
+                               
+                                        <input class="form-control" 
+                                        id="nameId" 
+                                        type="text"   pattern="[A-Za-z]{2}[0-9A-Za-z\s-]*"
+                                       
+                                        placeholder="route Name (required)" 
+                                        formControlName="name" />
+                        <span class="help-block" *ngIf="(routeForm.get('name').touched || 
+                                                         routeForm.get('name').dirty) && 
+                                                         routeForm.get('name').errors">
+                                <span *ngIf="routeForm.get('name').errors.required">
+                                        Please enter your first name.
+                                </span>
+                                <span *ngIf="routeForm.get('name').errors.minlength">
+                                The first name must be longer than 3 characters.
+                                </span>
+                                
+                        </span> 
+                        
+                        </div> 
+                        </fieldset>
+
+                   
+                        <fieldset class="col-sm-4 form-group"  >
+
+                                        <div class="form-group"
+                                        [ngClass]="{'has-error':(routeForm.get('links').touched || 
+                                        routeForm.get('links').dirty) && 
+                                        routeForm.get('links').errors }" >
+        
+                                        <label  for="nameId" class="control-label">links<sup>*</sup> </label>
+                                       
+                                        <select class="form-control" 
+                                        id="specializationId"   
+                                        style="width:180px"
+                                        [(ngModel)]="selectedValue3"
+                                       
+                                        #checklinks
+                                        (change)="check(checklinks.value)"
+                                        formControlName="links"  required>
+                                        
+                                        <option value=""  selected>select</option>
+                                    
+                                        <option *ngFor="let links of route">{{links[0].name}}</option>
+                                        </select>
+        
+                                <span class="help-block" *ngIf="(routeForm.get('links').touched || 
+                                                                 routeForm.get('links').dirty) && 
+                                                                 routeForm.get('links').errors">
+                                        <span *ngIf="routeForm.get('links').errors.required">
+                                                Please select one.
+                                        </span>
+                                </span> 
+                                
+                                </div> 
+
+                                </fieldset>
+
+                                <fieldset class="col-sm-4 form-group">
+                                                <label for="checkid" class="control-label">
+                                                              Description:
+                                                                      </label>
+                                                  <textarea class="form-control" id="description" name="description" class="description-about-chemist" formControlName="description"></textarea>
+                                </fieldset>
+                                    
+                                </section>
+                                <section class="row">
+                                
+                                <fieldset  class="col-sm-4 form-group" >
+
+                                <div class="row">
+
+                                <label  for="nameId" class="control-label" style="margin-left:25px">Manage links </label>
+                                <button class="btn btn-primary" style="margin-left: 25px" (click)="add()" [disabled]="(!this.routeForm.value.links)||(!previous_valueCheck())||this.more_links_check==1"   ><i class="fa fa-plus-square"></i></button>
+                                <!-- <label  for="nameId1" class="control-label">Remove links </label> -->
+                                <button class="btn btn-primary" style="margin-left: 2px"  (click)="remove()" [disabled]="counter==0" ><i class="fa fa-minus-square"></i></button>
+
+                                </div>
+                                </fieldset>
+                             
+
+                                </section>
+                                        
+                                      
+
+                                        <div formArrayName="latest_links" [ngClass]="{'has-error':(routeForm.get('latest_links').touched || 
+                                        routeForm.get('latest_links').dirty) && 
+                                        routeForm.get('latest_links').errors }">
+                                        <section class="row">
+                                                        <div  *ngFor="let key of temp_links; let i=index">
+                                                        
+                                                              
+                                                                        <fieldset class="col-sm-3">
+                                                     
+                                                          <select  [value]="this.routeForm.value.latest_links[i]" (change)="(controlChange(i))" class="form-control" required style="margin-top: 5px" [formControlName]="i">    
+                                                                        <!-- <option value=""  selected>select</option> -->
+                                                          <option *ngFor="let new_links of complete_links[i]">{{new_links[0].name}}</option>
+             
+
+                                                          </select>
+                                                          </fieldset>
+                                                               
+                                                                                        
+                                <span class="help-block" *ngIf="(routeForm.get('latest_links').touched || 
+                                routeForm.get('latest_links').dirty)&& 
+                                routeForm.get('latest_links').errors">
+       <span *ngIf="routeForm.get('latest_links').errors.required">
+               Please select one.
+       </span>
+</span> 
+                                                      
+                                                        </div>
+
+                                                        <section>
+
+                                                                        <div *ngIf="more_links_check==1" style="color: red;margin-left: 10px;margin-top: 10px; margin-left: 10px"> No more links available </div>
+                                                                        </section>
+                                          
+                                                        </section>
+
+                          
+                                
+                                        </div>
+                                      
+                                  
+                                                
+                                        
+
+
+              <div class="row" style="margin-top: 30px">
+
+                         
+                        <button class="btn btn-primary" style="margin-left: 380px" type="submit" (click)="onSubmit()" [disabled]="!routeForm.valid" >Submit</button>
+                                    <button class="btn btn-primary" style="margin-left:20px" type="submit" (click)="Reset()" >Reset</button>
+                             
+                            </div>
+                   
+            </form> 
+         
+
+    </div>
+   
+
+     <footer class="panel-footer">
+            <i class="fa fa-arrow-circle-left pull-left" aria-hidden="true" ng-click="lbc.goToViewLabs()"></i>
+            <i class="fa fa-arrow-circle-right pull-right" aria-hidden="true" ng-click="lbc.goToLabAddress()"></i>
+          </footer>
+    </div>
+
+  
+        </div>
+
+       
+        </div>
+        
+     
+    
+    <div class="panel-heading form-group" style="background: white;float:left; margin:15px;width:90%" >
+            Value: {{ routeForm.value | json }}
+        
+          
+            <br> <br> 
+
+
+         
+</div>
+

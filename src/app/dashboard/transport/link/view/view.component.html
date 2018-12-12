@@ -1,0 +1,47 @@
+<!-- <app-transport-sidebar></app-transport-sidebar> -->
+<button class="btn btn-primary"  routerLink="/addlink"><i class="fa fa-plus-circle" aria-hidden="true"></i>Add transport link</button>
+<button class="btn btn-primary"  routerLink="/moderatelink">Moderate Link</button>
+<div class="row">
+      
+      <div class="table-responsive">
+    <table class="table table-bordered">
+        
+        <caption>List of links</caption>
+        <thead>
+          <tr class="bg-success">
+            <th>Sr.No</th>
+            <th>Name</th>
+            <th>Source</th>
+            <th>Destination</th>
+            <th>Distance</th>
+         
+            <th>Description</th> 
+         
+            <th>Status</th>
+        
+            <th>Action</th>
+            <th>Moderate</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let link of link;let i=index;"  [class.selected]="link.id === selectedId"> 
+            
+          <tr>  
+            
+            <td> {{i+1}} </td>
+            <td> {{link[0].name}} </td>
+            <td>{{link[0].source}}</td>
+            <td>{{link[0].destination}}</td>
+            <td>{{link[0].distance}}</td>
+            <td>{{link[0].description}}</td>
+       
+            <td>{{link[0].mod_status}}</td>
+            <td><button class="btn" (click)="edit(link[0].id)"><i class="fa fa-edit"></i></button>
+            <td><button class="btn" (click)="dis(link[0].id)"><i class="fa fa-thumbs-down"></i></button></td>
+          </tr>
+          
+        </tbody>
+    </table>
+  </div>
+</div>
+
+

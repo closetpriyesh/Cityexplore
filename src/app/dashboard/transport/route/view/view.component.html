@@ -1,0 +1,58 @@
+<!-- <app-transport-sidebar></app-transport-sidebar> -->
+<button class="btn btn-primary"  routerLink="/addroute"><i class="fa fa-plus-circle" aria-hidden="true"></i>Add transport route</button>
+<button class="btn btn-primary"  routerLink="/moderateroute">Moderate Route</button>
+<div class="row">
+      
+      <div class="table-responsive">
+    <table class="table table-bordered">
+        
+        <caption>List of routes</caption>
+        <thead>
+          <tr class="bg-success">
+            <th>Sr.No</th>
+            <th> Name</th>
+            <th>Links</th>
+            <th>Source </th>
+            <th>Destination</th>
+            <th>Description</th>
+            <th>Status</th>
+
+        
+            <th>Action</th>
+            <th>Moderate</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let route of route;let i=index;"  [class.selected]="route.id === selectedId"> 
+            
+            
+          <tr>  
+              
+            <td> {{i+1}} </td>
+            <td> {{route.name}} </td>
+            <td>
+              <ul *ngFor="let links of route.links">
+              <li>{{links.name}}</li>
+              </ul>
+          </td>
+          <td>
+              <ul *ngFor="let links of route.links">
+              <li>{{links.source}}</li>
+              </ul>
+          </td>
+          <td>
+              <ul *ngFor="let links of route.links">
+              <li>{{links.destination}}</li>
+              </ul>
+          </td>
+            <td>{{route.description}}</td>
+            <td>{{route.mod_status}}</td>
+            <td><button class="btn" (click)="edit(route.id)"><i class="fa fa-edit"></i></button>
+            <td><button class="btn" (click)="dis(route.id)"><i class="fa fa-thumbs-down"></i></button></td>
+          </tr>
+          
+        </tbody>
+    </table>
+  </div>
+</div>
+
+

@@ -1,0 +1,40 @@
+<app-hospital-sidebar></app-hospital-sidebar>
+<div class="row">
+    <div class="inner">
+<div class="left">
+          <img  *ngIf="hospital" [src]='hospital.profile_image_url' class="profile-thumbnail">
+</div>
+<div class="right">
+    <h4 style="text-align: center"> Hospital Details
+    </h4>
+
+    <ul class="items" *ngIf="hospital">
+          <h4>Name:&nbsp;{{ hospital.name }}</h4>
+          <h4>Type:&nbsp;{{ hospital.type }}</h4>
+    </ul>
+  
+</div>
+</div>
+<table class="table table-bordered">
+    <thead class="head">
+      <tr class="bg-success">
+        <th>City</th>
+        <th>Country</th>
+        <th>Address</th>
+        <th>Pincode</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngIf="hospital">
+        <td> {{hospital.city}} </td>
+        <td> {{hospital.country}} </td>
+        <td> {{hospital.address}} </td>
+        <td> {{hospital.pincode}} </td>
+    
+      </tr>
+    </tbody>
+</table>
+
+
+</div>
+

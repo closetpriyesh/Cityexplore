@@ -1,0 +1,40 @@
+<app-lab-sidebar></app-lab-sidebar>
+<button class="btn btn-primary" *ngIf="lab_id" [routerLink]="['/addlabtiming',lab_id]"><i class="fa fa-plus-circle" aria-hidden="true"></i>Add lab timing</button>
+<div class="row">
+      
+      <div class="table-responsive">
+    <table class="table table-bordered">
+        
+        <caption>List of timings</caption>
+        <thead>
+          <tr class="bg-success">
+              <th>Sr.No</th>
+            <th>Opening Days</th>
+            <th>Opening Time</th>
+            <th>Closing Time</th>
+            <th>Last Operation</th>   
+            <th>Status</th>
+            <th>Action</th>
+            <th>Moderate</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let timing of timing;let i=index;"  [class.selected]="timing.id === selectedId"> 
+            
+          <tr  >  
+            
+            <td> {{i+1}} </td>
+            <td> {{timing.day}} </td>
+            <td>{{timing.open_time}}</td>
+            <td>{{timing.close_time}}</td>
+            <td>{{timing.operation}}</td>
+            <td>{{timing.approval_status}}</td>
+            <td><button class="btn" (click)="edit(timing.id)"><i class="fa fa-edit"></i></button><button class="btn" (click)="delete(timing.id)"><i class="fa fa-trash-alt"></i></button></td>
+            <td><button class="btn" (click)="app(timing.id)"><i class="fa fa-thumbs-up"></i></button><button class="btn" (click)="dis(timing.id)"><i class="fa fa-thumbs-down"></i></button></td>
+          </tr>
+          
+        </tbody>
+    </table>
+  </div>
+</div>
+
+

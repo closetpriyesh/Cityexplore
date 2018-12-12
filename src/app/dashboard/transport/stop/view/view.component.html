@@ -1,0 +1,37 @@
+ <!-- <app-transport-sidebar></app-transport-sidebar> -->
+<button class="btn btn-primary"  routerLink="/addstop"><i class="fa fa-plus-circle" aria-hidden="true"></i>Add transport stop</button>
+<button class="btn btn-primary"  routerLink="/moderatestop">Moderate Stop</button>
+<div class="row">
+      
+      <div class="table-responsive">
+    <table class="table table-bordered">
+        
+        <caption>List of stops</caption>
+        <thead>
+          <tr class="bg-success">
+            <th>Sr.No</th>
+            <th>Name</th>
+         
+            <th>Status</th>
+            <th>Action</th>
+            <th>Moderate</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let stop of stop;let i=index;"  [class.selected]="stop.id === selectedId"> 
+            
+          <tr>  
+            
+            <td> {{i+1}} </td>
+            <td> {{stop[0].name}} </td>
+            
+            <td>{{stop[0].mod_status}}</td>
+            <td><button class="btn" (click)="edit(stop[0].id)"><i class="fa fa-edit"></i></button>
+            <td><button class="btn" (click)="dis(stop[0].id)"><i class="fa fa-thumbs-down"></i></button></td>
+          </tr>
+          
+        </tbody>
+    </table>
+  </div>
+</div>
+
+

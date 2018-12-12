@@ -1,0 +1,67 @@
+h4
+{
+    color:white;
+    text-align: left;
+}
+
+.left
+{
+
+    float:left;
+    width:200px;
+    height:200px;
+    overflow: hidden;
+    background: #6d7fcc;
+}
+
+.items{
+    margin-top: 20px;
+}
+
+h5
+{
+    color:white;
+}
+  
+.profile-thumbnail {
+    float: left;
+    width: 190px;
+    height: 190px;
+
+    overflow: hidden;
+    position: absolute;
+    margin: 5px 5px 5px 5px;
+    
+}
+
+
+  .right
+  {
+    width:710px;
+    z-index: 1;
+    height: 200px;
+
+    background: #6d7fcc;
+    overflow: hidden;
+    margin-left: 210px;
+ 
+
+  }
+table{
+    width: 920px;
+}
+
+  .row
+  {
+    
+      width:1000px;
+      overflow: hidden;
+  }
+  .inner
+  {
+      width: 1000px;
+      height: 210px;
+  }
+
+ 
+

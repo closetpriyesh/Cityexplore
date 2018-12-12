@@ -1,0 +1,39 @@
+ <!-- <app-transport-sidebar></app-transport-sidebar> -->
+ <button class="btn btn-primary"  routerLink="/addhomeimage"><i class="fa fa-plus-circle" aria-hidden="true"></i>Add transport homeimage</button>
+ <!-- <button class="btn btn-primary"  routerLink="/moderatehomeimage">Moderate homeimage</button> -->
+ <div class="row">
+       
+       <div class="table-responsive">
+     <table class="table table-bordered">
+         
+         <caption>List of homeimages</caption>
+         <thead>
+           <tr class="bg-success">
+             <th>Sr.No</th>
+             <th>Name</th>
+          
+             <!-- <th>Status</th>
+             <th>Action</th>
+             <th>Moderate</th> -->
+           </tr>
+         </thead>
+         <tbody *ngFor="let homeimage of homeimage;let i=index;"  [class.selected]="homeimage.id === selectedId"> 
+             
+           <tr>  
+             
+             <td> {{i+1}} </td>
+             <td> {{homeimage}} </td>
+
+<!--              
+             <td>{{homeimage[0].mod_status}}</td>
+             <td><button class="btn" (click)="edit(homeimage[0].id)"><i class="fa fa-edit"></i></button>
+             <td><button class="btn" (click)="dis(homeimage[0].id)"><i class="fa fa-thumbs-down"></i></button></td> -->
+           </tr>
+           
+         </tbody>
+     </table>
+   </div>
+ </div>
+ 
+ 
+ 

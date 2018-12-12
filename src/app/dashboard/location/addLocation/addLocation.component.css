@@ -1,0 +1,31 @@
+.previewDP {
+	height: 100px;
+	width: 100px;
+	background-color: #eee;
+	border: 1px dashed black;
+}
+
+.location-about-style{
+	border:1px solid gray;
+	width:400px;
+	height:80px;
+}
+
+.location-headline-style{
+	border:1px solid gray;
+	width:400px;
+	height:40px;
+}
+
+.location-map-style{
+	border:1px solid gray;
+	width:250px;
+	height:160px;
+}
+
+.location-preview-style{
+	margin-left:50px;
+	border:1px solid gray;
+	width:150px;
+	height:120px;
+}

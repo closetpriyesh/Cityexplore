@@ -1,0 +1,35 @@
+<aside class="rightNav">
+    <div>
+        <h3>DOCTOR</h3>            
+    </div>
+    <ul class="list-unstyled components">
+        <li class="active">
+            <a routerLink="/Doctors">
+                <i class="glyphicon glyphicon-home"></i>
+                Doctor Home
+            </a>
+        </li>
+
+        <li class="active">
+            <a [routerLink]="['/viewdoctoreducation', doctor_id]">
+                <i class="glyphicon glyphicon-home"></i>
+                Education
+            </a>
+    </li>
+    
+    <li class="active">
+            <a [routerLink]="['/viewdoctorspecialization', doctor_id]">
+                <i class="glyphicon glyphicon-home"></i>
+                Specialization
+            </a>
+    </li>
+
+    <li class="active">
+        <a [routerLink]="['/viewdoctortiming', doctor_id]">
+            <i class="glyphicon glyphicon-home"></i>
+            Timing
+        </a>
+</li>
+    </ul>
+
+<aside>

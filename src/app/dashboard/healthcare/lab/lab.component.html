@@ -1,0 +1,28 @@
+<aside class="rightSideNav">
+        <div>
+            <h3 style="margin-left: 10px">Diagnosis Labs</h3>            
+        </div>
+        <ul class="list-unstyled components">
+            <li class="active">
+                <a routerLink="/lab">
+                    <i class="glyphicon glyphicon-home"></i>
+                    Lab Home
+                </a>
+            </li>
+
+            <li class="active">
+                    <a [routerLink]="['/viewlabtiming',lab_id]">
+                        <i class="glyphicon glyphicon-home"></i>
+                        Lab Timings
+                    </a>
+            </li>
+            
+            <li class="active">
+                <a [routerLink]="['/viewlabservice',lab_id]">
+                    <i class="glyphicon glyphicon-home"></i>
+                    Diagnosis Tests
+                </a>
+            </li>
+        </ul>
+
+<aside>

@@ -1,0 +1,521 @@
+<app-chemist-sidebar></app-chemist-sidebar>
+<div class="row">
+        <div class="col-sm-12">
+                <div class="panel panel-info">
+                <header class="panel-heading form-header">
+                    <h4>   Chemist </h4>
+                </header>
+        <div class="panel-body">
+                 <form novalidate
+                        (ngSubmit)="onSubmit(chemistForm)"
+                        [formGroup]="chemistForm"  >
+
+                        <section class="row" >
+                            
+                            <fieldset class="col-sm-3 form-group" >
+
+                                <div class="form-group"
+                                [ngClass]="{'has-error':(chemistForm.get('name').touched || 
+                                chemistForm.get('name').dirty) && 
+                                chemistForm.get('name').errors }">
+
+                                <label  for="nameId" class="control-label">Name<sup>*</sup> </label>
+                               
+                                        <input class="form-control" 
+                                        id="nameId" 
+                                        type="text"   pattern="[A-Za-z]{3}[0-9A-Za-z\s]*"
+                                        style="margin-left: 1px"
+                                        placeholder="chemist Name (required)" 
+                                        formControlName="name" />
+                        <span class="help-block" *ngIf="(chemistForm.get('name').touched || 
+                                                         chemistForm.get('name').dirty) && 
+                                                         chemistForm.get('name').errors">
+                                <span *ngIf="chemistForm.get('name').errors.required">
+                                        Please enter your first name.
+                                </span>
+                                <span *ngIf="chemistForm.get('name').errors.minlength">
+                                The first name must be longer than 3 characters.
+                                </span>
+                                
+                        </span> 
+                        
+                        </div> 
+                        </fieldset>
+
+                        <fieldset class="col-sm-3 form-group">
+                        <div class="form-group"
+                        [ngClass]="{'has-error':(chemistForm.get('profile_image_url').touched || 
+                        chemistForm.get('profile_image_url').dirty) && 
+                        chemistForm.get('profile_image_url').errors }">
+                                <label  for="imageId" class="control-label">Profile Image<sup>*</sup></label>
+                       
+
+                                <input class="form-control" 
+                                id="imageId" 
+                                
+                                type="file" 
+                                placeholder="chemist_profile_image_url (required)" 
+                                formControlName="profile_image_url" 
+                                (change)="fileEvent($event)"/>
+            
+                        <span class="help-block" *ngIf=" (chemistForm.get('profile_image_url').touched || 
+                        chemistForm.get('profile_image_url').dirty) && chemistForm.get('profile_image_url').errors">
+                                                <span *ngIf="chemistForm.controls.profile_image_url.errors.required">
+                                                        Please enter correct url.
+                            
+                                        
+                                                </span>
+                                                
+                        </span> 
+                                               
+            
+                        
+                        </div> 
+                        </fieldset>
+
+                        <fieldset class="col-sm-3 form-group">
+                                <div class="form-group"
+                                [ngClass]="{'has-error':(chemistForm.get('cover_image_url').touched || 
+                                chemistForm.get('cover_image_url').dirty) && 
+                                chemistForm.get('cover_image_url').errors }">
+                                        <label  for="imageId" class="control-label">Cover Image<sup>*</sup> </label>
+                               
+        
+                                        <input class="form-control" 
+                                        id="imageId" 
+                                        
+                                        type="file" 
+                                        placeholder="chemist_cover_image_url (required)" 
+                                        formControlName="cover_image_url" 
+                                        (change)="fileEvent1($event)"/>
+                    
+                                <span class="help-block" *ngIf=" (chemistForm.get('cover_image_url').touched || 
+                                chemistForm.get('cover_image_url').dirty) && chemistForm.get('cover_image_url').errors">
+                                                        <span *ngIf="chemistForm.controls.cover_image_url.errors.required">
+                                                                Please enter correct url.
+                                    
+                                                
+                                                        </span>
+                                                        
+                                </span> 
+                                                       
+                    
+                                
+                                </div> 
+                                </fieldset>
+
+                        <fieldset class="col-sm-3 form-group">
+                        <div class="form-group"
+                        [ngClass]="{'has-error':(chemistForm.get('phone').touched || 
+                        chemistForm.get('phone').dirty) && 
+                        chemistForm.get('phone').errors }" >
+                                <label  for="phoneId" class="control-label">Phone Number<sup>*</sup> </label>
+                       
+                                <input class="form-control" 
+                                id="phoneId" 
+                                pattern="[6-9][0-9]{9}"
+                                type="text" 
+                                
+                                formControlName="phone" />
+                        
+                        </div> 
+                        </fieldset>
+
+                        
+                     
+
+                </section>
+                        <section class="row" >
+                                
+                                <fieldset class="col-sm-3 form-group" >
+
+                                        <div class="form-group"
+                                        [ngClass]="{'has-error':(chemistForm.get('email').touched || 
+                                        chemistForm.get('email').dirty) && 
+                                        chemistForm.get('email').errors }"  >
+                                                <label  for="emailId" class="control-label">Email<sup>* </sup></label>
+                                       
+                                                <input class="form-control" 
+                                                id="emailId" 
+                                               
+                                                type="text" 
+                                                placeholder="enter email" 
+                                                formControlName="email" />
+                                        
+                                        </div> 
+                
+                                        </fieldset> 
+
+                        <fieldset class="col-sm-3 form-group">
+
+                                        <div class="form-group"
+                                        [ngClass]="{'has-error':(chemistForm.get('opening_time').touched || 
+                                        chemistForm.get('opening_time').dirty) && 
+                                        chemistForm.get('opening_time').errors }" >
+                                                <label  for="opening_time" class="control-label">Opening Time <sup>*</sup></label>
+                                       
+                                                <input class="form-control" 
+                                                id="opening_timeId" 
+                                                type="text" 
+                                                pattern="([01]?[0-9]|2[0-3]):[0-5][0-9]"
+                                                placeholder="HH:MM(24hr format)" 
+                                                formControlName="opening_time" />
+                                        
+                                        </div> 
+                
+                        </fieldset>  
+
+                        <fieldset class="col-sm-3 form-group">
+
+                                        <div class="form-group"
+                                        [ngClass]="{'has-error':(chemistForm.get('closing_time').touched || 
+                                        chemistForm.get('closing_time').dirty) && 
+                                        chemistForm.get('closing_time').errors }" >
+                                                <label  for="closing_time" class="control-label">Closing Time<sup>*</sup> </label>
+                                       
+                                                <input class="form-control" 
+                                                id="closing_timeId" 
+                                                type="text" 
+                                                placeholder="HH:MM(24hr format)"
+                                                pattern="([01]?[0-9]|2[0-3]):[0-5][0-9]" 
+                                                formControlName="closing_time" />
+                                        
+                                       </div> 
+                
+                        </fieldset>  
+
+                        
+                                                <fieldset class="col-sm-3 form-group">
+                                  <label for="checkid" class="control-label">
+                                                Description:
+                                                        </label>
+                                    <textarea class="form-control" id="description" name="description" class="description-about-chemist" formControlName="description"></textarea>
+                                </fieldset>
+        
+
+
+                        </section>  
+
+
+
+                        <label for="checkid" style="margin-left:18px" >
+                                        Types:<sup>*</sup>
+                                        </label>            
+                <div class="form-group" [formArrayName]="'types'"  [class.invalid]="!chemistForm.controls.selectedItems1.valid" >
+                                <fieldset class="form-group">
+                        <label *ngFor="let control of chemistForm.controls.types.controls; let i = index;" [formGroup]="control">
+                        <input type="checkbox" formControlName="checkbox1" id="{{ control.controls.id.value }}">
+                          <label attr.for="{{ control.controls.id.value }}">{{ control.controls.text.value }}</label>
+                        </label>
+                      <span [class.invalid]="!chemistForm.controls.selectedItems1.valid"  *ngIf="!chemistForm.controls.selectedItems1.valid&&flag1">
+                        <sup>*</sup> Select atleast one type.
+                      </span>
+                </fieldset>
+        </div> 
+
+                       
+                        <label for="checkid" style="margin-left:18px" >
+                                         Days Open:<sup>*</sup>
+                                        </label>            
+                <div class="form-group" [formArrayName]="'days'"  [class.invalid]="!chemistForm.controls.selectedItems.valid" >
+                                <fieldset class="form-group">
+                        <label *ngFor="let control of chemistForm.controls.days.controls; let i = index;" [formGroup]="control">
+                        <input type="checkbox" formControlName="checkbox" id="{{ control.controls.id.value }}">
+                          <label attr.for="{{ control.controls.id.value }}">{{ control.controls.text.value }}</label>
+                        </label>
+                      <span [class.invalid]="!chemistForm.controls.selectedItems.valid"  *ngIf="!chemistForm.controls.selectedItems.valid&&flag">
+                        <sup>*</sup> Select atleast one day.
+                      </span>
+                </fieldset>
+        </div> 
+                      
+          <section class="row" >
+            
+                                        <fieldset class="col-sm-4 form-group">
+               
+                                                <div class="form-group"
+                                                [ngClass]="{'has-error':(chemistForm.get('city').touched ||
+                                                chemistForm.get('city').dirty) &&
+                                                chemistForm.get('city').errors }" >
+                                                        <label  for="city" class="control-label">City<sup>*</sup> </label>
+            
+                                                        <input class="form-control"
+                                                        id="cityId"
+                                                        type="text"
+                                                        [(ngModel)]="city"
+                                                        readonly
+                                                         pattern="[A-Za-z]{2,}"
+                                                        formControlName="city" />
+            
+            
+                                                        <span class="help-block" *ngIf="(chemistForm.get('city').touched || 
+                                                        chemistForm.get('city').dirty) && 
+                                                        chemistForm.get('city').errors">
+                                    <span *ngIf="chemistForm.get('city').errors.required">
+                                                            Please enter the city name.
+                                                    </span>
+                                                    </span>
+            
+                                                </div>
+            
+                                        </fieldset>
+            
+                                    
+                                        <fieldset class="col-sm-4 form-group" >
+            
+                                                    <div class="form-group"
+                                                    [ngClass]="{'has-error':(chemistForm.get('state').touched || 
+                                                    chemistForm.get('state').dirty) && 
+                                                    chemistForm.get('state').errors }">
+                    
+                                                    <label  for="stateId" class="control-label">State<sup>*</sup> </label>
+                                                   
+                                                            <input class="form-control" 
+                                                            id="stateId" 
+                                                            type="text"  pattern="[A-Za-z]{3}[0-9A-Za-z\s,.-]*"
+                                                            formControlName="state" />
+                                            <span class="help-block" *ngIf="(chemistForm.get('state').touched || 
+                                                                             chemistForm.get('state').dirty) && 
+                                                                             chemistForm.get('state').errors">
+            
+                                                 <span *ngIf="chemistForm.get('state').errors.required">
+                                                    Please enter state name.
+                                                 </span>
+                                                   
+                                                    <span *ngIf="chemistForm.get('state').errors.minlength">
+                                                    State Name must be atleast 3 characters.
+                                                    </span>
+                                                    
+                                            </span> 
+                                            
+                                            </div> 
+                                            </fieldset>
+                    
+            
+                                        <fieldset class="col-sm-4 form-group">
+               
+                                                <div class="form-group"
+                                                [ngClass]="{'has-error':(chemistForm.get('country').touched ||
+                                                chemistForm.get('country').dirty) &&
+                                                chemistForm.get('country').errors }" >
+                                                        <label  for="country" class="control-label">Country<sup>*</sup> </label>
+            
+                                                        <input class="form-control"
+                                                        id="countryId"
+                                                        type="text"
+                                                        required
+                                                        pattern="[A-Za-z]{3}[0-9A-Za-z\s,.-]*"
+                                                        formControlName="country" />
+            
+                                                        <span class="help-block" *ngIf="(chemistForm.get('country').touched || 
+                                                        chemistForm.get('country').dirty) && 
+                                                        chemistForm.get('country').errors">
+                                                        <span *ngIf="chemistForm.get('country').errors.required">
+                                                            Please enter the country name.
+                                                    </span>
+                                                    </span>
+            
+            
+                                                </div>
+            
+                                        </fieldset>
+            
+            
+                           </section>
+                                   <section class="row" >
+            
+            
+            
+                                        <fieldset class="col-sm-4 form-group">
+               
+                                                <div class="form-group"
+                                                [ngClass]="{'has-error':(chemistForm.get('address').touched ||
+                                                chemistForm.get('address').dirty) &&
+                                                chemistForm.get('address').errors }" >
+                                                        <label  for="address" class="control-label">Address<sup>*</sup> </label>
+            
+                                                        <input class="form-control"
+                                                        id="addressId"
+                                                        type="text"         pattern="[0-9]{0,6}[a-zA-Z\s.-]{1,50}[0-9a-zA-Z\s.,-]*"
+                                                        required
+                                                        formControlName="address" />
+                                                        <span class="help-block" *ngIf="(chemistForm.get('address').touched || 
+                                                        chemistForm.get('address').dirty) && 
+                                                        chemistForm.get('address').errors">
+                                                        
+                                                        <span *ngIf="chemistForm.get('address').errors.required">
+                                                            Please enter the address
+                                                    </span>
+                                                    </span>
+            
+            
+                                                </div>
+            
+                                        </fieldset>
+            
+                                        <fieldset class="col-sm-4 form-group">
+               
+                                                    <div class="form-group" >
+                                                            <label  for="landmark" class="control-label">Landmark (Optional) </label>
+                
+                                                            <input class="form-control"
+                                                            id="landmarkId"
+                                                            type="text"        pattern="[0-9]{0,6}[a-zA-Z\s.-]{1,50}[0-9a-zA-Z\s.,-]*"
+                                                            required="false"    
+                                                            formControlName="landmark" />
+                                                    </div>
+                
+                                            </fieldset>
+                
+                                            <fieldset class="col-sm-4 form-group">
+                   
+                                                    <div class="form-group"
+                                                    [ngClass]="{'has-error':(chemistForm.get('pincode').touched ||
+                                                    chemistForm.get('pincode').dirty) &&
+                                                    chemistForm.get('pincode').errors }" >
+                                                            <label  for="pincode" class="control-label">pincode<sup>*</sup> </label>
+                
+                                                            <input class="form-control"
+                                                            id="pincodeId"
+                                                            type="text"
+                                                            pattern="[0-9]{4,10}"
+                                                            required
+                                                            formControlName="pincode" />
+                
+                                                            <span class="help-block" *ngIf="(chemistForm.get('pincode').touched || 
+                                                            chemistForm.get('pincode').dirty) && 
+                                                            chemistForm.get('pincode').errors">
+                                                            <span *ngIf="chemistForm.get('pincode').errors.required">
+                                                                Please enter the pincode.
+                                                        </span>
+                                                        </span>
+                
+                
+                                                    </div>
+                
+                                            </fieldset>
+            
+            
+                                     
+            
+                                        
+            
+            
+                                   </section>
+            
+
+                                   <div class="form-group">
+                                        <input type="radio" id="btn" (click)="getLatLong()" style="margin-left: 10px"> <b>Get Latitude Longitude</b>
+                                    </div>
+        
+                               <section class="row" >
+        
+        
+        
+                                        <fieldset class="col-sm-4 form-group">
+           
+                                                        <div class="form-group"
+                                                        [ngClass]="{'has-error':(chemistForm.get('latitude').touched ||
+                                                        chemistForm.get('latitude').dirty) &&
+                                                        chemistForm.get('latitude').errors }" >
+                                                                <label  for="latitude" class="control-label">Latitude<sup>*</sup> </label>
+                    
+                                                                <input class="form-control"
+                                                                id="latitudeId"
+                                                                [ngModel]="latitude"
+                                                                type="text"
+                                                                pattern="([-]{0,1})[0-9]*[.][0-9]*"
+                                                                required
+                                                                formControlName="latitude" />
+                                                            
+                                                                <span class="help-block" *ngIf="(chemistForm.get('latitude').touched || 
+                                                                chemistForm.get('latitude').dirty) && 
+                                                                chemistForm.get('latitude').errors">
+                                                                
+                                                                <span *ngIf="chemistForm.get('latitude').errors.required">
+                                                                    Please select "get latitude and longitude".
+                                                            </span>
+                                                            </span>
+                    
+                                                        </div>
+                    
+                                                </fieldset>
+        
+                                        <fieldset class="col-sm-4 form-group">
+           
+                                                        <div class="form-group"
+                                                        [ngClass]="{'has-error':(chemistForm.get('longitude').touched ||
+                                                        chemistForm.get('longitude').dirty) &&
+                                                        chemistForm.get('longitude').errors }" >
+                                                                <label  for="longitude" class="control-label">Longitude<sup>*</sup> </label>
+                    
+                                                                <input class="form-control"
+                                                                id="longitudeId"
+                                                                type="text"
+                                                                [ngModel]="longitude"
+                                                                pattern="([-]{0,1})[0-9]*[.][0-9]*"
+                                                                required
+                                                                formControlName="longitude" />
+                                                            
+                                                                <span class="help-block" *ngIf="(chemistForm.get('longitude').touched || 
+                                                                chemistForm.get('longitude').dirty) && 
+                                                                chemistForm.get('longitude').errors">
+                                                                
+                                                                <span *ngIf="chemistForm.get('longitude').errors.required">
+                                                                    Please select "get latitude and longitude".
+                                                            </span>
+                                                            </span>
+                    
+                                                        </div>
+                    
+                                                </fieldset>
+        
+                                   
+        </section>
+        
+                    
+
+
+                      
+                
+              
+                  <div class="row">
+
+                  <div class="btn" style="margin-left: 200px; background: white;width: 200px">  
+                                    <button class="btn btn-primary" style="margin-left:0px" type="submit" [disabled]="!chemistForm.valid">Submit</button>
+                             
+                            </div>
+                            
+                
+                            <div class="btn" style="margin-left: 85px; background: white;width: 200px">  
+                                        <button class="btn btn-primary" style="margin-left:0px" type="submit" (click)="Reset()" >Reset</button>
+                                 
+                                </div>
+                </div>
+                
+
+             
+
+                </form>
+
+                
+
+
+        </div>
+        <footer class="panel-footer">
+                <i class="fa fa-arrow-circle-left pull-left" aria-hidden="true" ng-click="lbc.goToViewLabs()"></i>
+                <i class="fa fa-arrow-circle-right pull-right" aria-hidden="true" ng-click="lbc.goToLabAddress()"></i>
+              </footer>
+        </div>
+        
+        <!-- <div>
+                Value: {{ chemistForm.value | json }}
+                
+                <br><br>
+  <img [src]= "chemistForm.get('profile_image_url').value" width="400px">
+
+
+             
+</div> -->
+
+

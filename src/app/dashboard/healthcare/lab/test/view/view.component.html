@@ -1,0 +1,38 @@
+<app-lab-sidebar></app-lab-sidebar>
+<button class="btn btn-primary" *ngIf="lab_id" [routerLink]="['/addlabservice',lab_id]"><i class="fa fa-plus-circle" aria-hidden="true"></i>Add lab Service</button>
+<div class="row">
+      
+      <div class="table-responsive">
+    <table class="table table-bordered">
+        
+        <caption>List of Services</caption>
+        <thead>
+          <tr class="bg-success">
+              <th>Sr.No</th>
+            <th>Name</th>
+            <th>Fee</th>
+            <th>Last Operation</th>   
+            <th>Status</th>
+            <th>Action</th>
+            <th>Moderate</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let service of service;let i=index;"  [class.selected]="service.id === selectedId"> 
+            
+          <tr  >  
+            
+            <td> {{i+1}} </td>
+            <td> {{service.name}} </td>
+            <td>{{service.fee}}</td>
+            <td>{{service.operation}}</td>
+            <td>{{service.approval_status}}</td>
+            <td><button class="btn" (click)="edit(service.id)"><i class="fa fa-edit"></i></button><button class="btn" (click)="delete(service.id)"><i class="fa fa-trash-alt"></i></button></td>
+            <td><button class="btn" (click)="app(service.id)"><i class="fa fa-thumbs-up"></i></button><button class="btn" (click)="dis(service.id)"><i class="fa fa-thumbs-down"></i></button></td>
+          </tr>
+          
+        </tbody>
+    </table>
+  </div>
+</div>
+
+

@@ -1,0 +1,36 @@
+
+<button class="btn btn-primary" routerLink="/doctorform"><i class="fa fa-plus-circle" aria-hidden="true"></i>Add</button>
+
+<div class="row">
+  <div>
+      
+      <div class="table-responsive">
+    <table class="table table-bordered">
+        
+        <caption>List of Doctors</caption>
+        <thead>
+          <tr class="bg-success">
+            <th>Sr. No.</th>
+            <th>Name</th>
+            <th>Last Operation</th>
+            <th>Approval Status</th>
+            <th>Action</th>
+            <th>Moderate</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let doctor of doctor; let i=index"  [class.selected]="doctor.id === selectedId">
+          <tr >
+            <td> {{i+1}} </td>
+            <td [routerLink]="['/doctorhome', doctor.id]"> {{doctor.name}} </td>
+            <td>{{doctor.operation}}</td>
+            <td> {{doctor.approval_status}} </td>
+            <td><button class="btn" (click)="edit(doctor.id)"><i class="fa fa-edit"></i></button><button class="btn" (click)="delete(doctor.id)"><i class="fa fa-trash-alt"></i></button></td>
+            <td><button class="btn" (click)="app(doctor.id)"><i class="fa fa-thumbs-up"></i></button><button class="btn" (click)="dis(doctor.id)"><i class="fa fa-thumbs-down"></i></button></td>    
+          </tr>
+        </tbody>
+    </table>
+  </div>
+</div>
+</div>
+
+

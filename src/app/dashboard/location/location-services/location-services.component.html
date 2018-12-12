@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 form-style-8">
+            <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+                <legend>Add Location Services</legend>
+                    <div class="form-group">
+                        <input type="number" id="city_id" class="form-control" [ngModel]=city_id name="city_id" required placeholder="City ID*" type="hidden">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="city" class="form-control" [ngModel]="cityId" name="city" required readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="options">Options:</label>
+                        <div *ngFor="let option of options">
+                            <label>
+                                <input type="checkbox" name="options" value="{{option.value}}" [(ngModel)]="option.checked"/>
+                                {{option.name}}
+                            </label>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Submit</button>
+                    <button class="btn btn-warning" (click)="Reset()">Reset</button>
+            </form>
+        </div>
+    </div>
+</div>

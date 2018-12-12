@@ -1,0 +1,36 @@
+<aside class="rightSideNav">
+    <div>
+        <h3 style="margin-left: 10px">HOSPITAL</h3>            
+    </div>
+    <ul class="list-unstyled components">
+        <li class="active">
+            <a routerLink="/Hospitals">
+                <i class="glyphicon glyphicon-home"></i>
+                Hospital Home
+            </a>
+        </li>
+      
+
+        <li class="active">
+            <a [routerLink]="['/viewhospitalimages',hospital_id]">
+                <i class="glyphicon glyphicon-home"></i>
+             Hospital Images
+            </a>
+    </li>
+    <li class="active">
+        <a [routerLink]="['/viewhospitaldepartment',hospital_id]">
+            <i class="glyphicon glyphicon-home"></i>
+            Department
+        </a>
+</li>
+
+
+<li class="active">
+    <a [routerLink]="['/viewhospitalfacility',hospital_id]">
+        <i class="glyphicon glyphicon-home"></i>
+        Facilities
+    </a>
+</li>
+    </ul>
+
+<aside>

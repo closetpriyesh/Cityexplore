@@ -1,0 +1,39 @@
+<app-lab-sidebar></app-lab-sidebar>
+<div class="row">
+    <div class="inner">
+<div class="left">
+          <img  *ngIf="lab" [src]='lab.profile_image_url' class="profile-thumbnail">
+</div>
+<div class="right">
+    <h4 style="text-align: center"> Personal Details
+    </h4>
+
+    <ul class="items" *ngIf="lab">
+          <h5>Name:&nbsp;{{ lab.name }}</h5>
+          <h5>Email Id:&nbsp;{{ lab.email }}</h5>
+
+      </ul>
+  
+</div>
+</div>
+<table class="table table-bordered">
+    <thead class="head">
+      <tr class="bg-success">
+        <th>City</th>
+        <th>Country</th>
+        <th>lab</th>
+        <th>Pincode</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngIf="lab" >
+        <td> {{lab.city}} </td>
+        <td> {{lab.country}} </td>
+        <td> {{lab.address}} </td>
+        <td> {{lab.pincode}} </td>
+    
+      </tr>
+    </tbody>
+</table>
+</div>
+

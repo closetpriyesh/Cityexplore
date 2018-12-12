@@ -1,0 +1,46 @@
+<button class="btn btn-primary"  routerLink="['/moderatevehicleconfiguration',vehicle_id]">Moderate Vehicle Configuration</button>
+<button class="btn btn-primary"  routerLink="/viewvehicle">Vehicle Home</button>
+<div class="row">
+      
+      <div class="table-responsive">
+    <table class="table table-bordered">
+        
+        <caption>List of Vehicles</caption>
+        <thead>
+          <tr class="bg-success">
+            <th>Sr.No</th>
+            <th>Company Name</th>
+            <th>Number</th>
+            <th>Type</th>
+            <th>Seating</th>
+         
+            <th>Capacity</th> 
+            <th>Operational Days</th>  
+            <th>Status</th>
+        
+            <th>Action</th>
+            <th>Moderate</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let vehicle of vehicle;let i=index;"  [class.selected]="vehicle.id === selectedId"> 
+            
+          <tr>  
+            
+            <td> {{i+1}} </td>
+            <td> {{vehicle[0].company}} </td>
+            <td>{{vehicle[0].number}}</td>
+            <td>{{vehicle[0].type}}</td>
+            <td>{{vehicle[0].seating}}</td>
+            <td>{{vehicle[0].capacity}}</td>
+            <td>{{vehicle[0].days_operation}}</td>
+            <td>{{vehicle[0].mod_status}}</td>
+            <td><button class="btn" (click)="edit(vehicle[0].id)"><i class="fa fa-edit"></i></button>
+            <td><button class="btn" (click)="app(vehicle[0].id)"><i class="fa fa-thumbs-up"></i></button><button class="btn" (click)="dis(vehicle[0].id)"><i class="fa fa-thumbs-down"></i></button></td>
+          </tr>
+          
+        </tbody>
+    </table>
+  </div>
+</div>
+
+

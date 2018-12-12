@@ -1,0 +1,46 @@
+
+<button class="btn btn-primary" routerLink="/chemistform"><i class="fa fa-plus-circle" aria-hidden="true"></i>Add</button>
+<div class="row">
+  <div class="col-sm-30">
+      
+      <div class="table-responsive">
+    <table class="table table-bordered">
+        
+        <caption>List of Chemist</caption>
+        <thead>
+          <tr class="bg-success">
+            <th> Sr. No. </th>
+            <th>Name</th>
+            <th>Medicine Types</th>
+            <th>Phone No.</th>
+            <th>Last Operation</th>
+            <th>Approval Status</th>
+            <th>Moderate</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let chemist of chemist; let i = index"  [class.selected]="chemist.id === selectedId">
+            <tr >
+              <td > {{i+1+(current_page-1)*10}} </td>
+              <td [routerLink]="['/chemisthome', chemist.id]"> {{chemist.name}} </td>
+              <td> 
+                <li *ngIf="chemist.homeopathy==true"> Homeopathy </li>
+                <li *ngIf="chemist.aleopathy==true"> Allopathy</li>
+                <li *ngIf="chemist.ayurvedic==true"> Ayurvedic </li>
+              </td>
+              <td> {{chemist.phone}} </td>
+              <td> {{chemist.operation}} </td>
+              <td> {{chemist.approval_status}} </td>
+              <td><button class="btn" (click)="edit(chemist.id)"><i class="fa fa-edit"></i></button><button class="btn" (click)="delete(chemist.id)"><i class="fa fa-trash-alt"></i></button></td>
+              <td><button class="btn" (click)="app(chemist.id)"><i class="fa fa-thumbs-up"></i></button><button class="btn" (click)="dis(chemist.id)"><i class="fa fa-thumbs-down"></i></button></td>
+              
+            </tr>
+          </tbody>
+
+
+    </table>
+  </div>
+</div>
+</div>
+
+
